@@ -1,20 +1,39 @@
 {
-  "name": "ts",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "directories": {
-    "example": "example"
-  },
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack -w",
-    "start": "webpack serve --open"
+    "start": "umi dev",
+    "build": "umi build",
+    "postinstall": "umi generate tmp",
+    "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
+    "test": "umi-test",
+    "test:coverage": "umi-test --coverage"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,jsx,less,md,json}": [
+      "prettier --write"
+    ],
+    "*.ts?(x)": [
+      "prettier --parser=typescript --write"
+    ]
+  },
+  "dependencies": {
+    "@ant-design/pro-layout": "^6.5.0",
+    "figlet": "^1.5.2",
+    "react": "17.x",
+    "react-dom": "17.x",
+    "umi": "^3.5.8"
+  },
   "devDependencies": {
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@umijs/preset-react": "^1.8.14",
+    "@umijs/test": "^3.5.8",
+    "lint-staged": "^10.0.7",
+    "prettier": "^2.2.0",
+    "yorkie": "^2.0.0",
     "@babel/core": "^7.15.8",
     "@babel/preset-env": "^7.15.8",
     "babel-loader": "^8.2.2",
@@ -28,6 +47,16 @@
     "webpack-cli": "^4.9.0",
     "webpack-dev-server": "^4.3.1"
   },
+  "name": "ts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "example": "example"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
