@@ -1,0 +1,69 @@
+@link-color: #428bca;
+@link-color-hover: darken(@link-color, 10%);
+@theme-color: #6d63fd;
+a,
+.link {
+  color: @link-color;
+}
+
+a:hover {
+  color: @link-color-hover;
+}
+
+// --------------------------------------------------------------------
+// 变量插值 variable interpolation
+@my-selector: banner;
+.@{my-selector} {
+  margin: 0 auto;
+}
+
+@images: '../../assets';
+.body-test {
+  color: #444;
+  background: url('@{images}/login.svg');
+}
+// -------------------------
+
+// Import Statements
+@themes: '../../assets';
+// @import "@{themes}/dark.less"
+
+@class-prefix-button: ~'adm-button';
+.@{class-prefix-button} {
+  color: #000000;
+}
+
+.login-container {
+  height: 100vh;
+  position: relative;
+  box-sizing: border-box;
+  .login-welcome {
+    text-align: center;
+    line-height: 30px;
+    font-size: 28px;
+    padding: 20px;
+    color: #428bca;
+  }
+  .bg-box {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .login-bg {
+      width: 100%;
+    }
+  }
+  .form-box {
+    width: 50%;
+    // background-color: @theme-color;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-top: 200px;
+  }
+}

@@ -1,15 +1,18 @@
-import React from 'react';
+import React, { FC } from 'react';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 
 import styles from './index.less';
 
-export default function (props) {
+const BasicLayout: FC = ({ children }) => {
+  console.log('basic layout loading');
   return (
     <div className={styles['basic-layout']}>
       <Header />
-      {props.children}
+      {children}
       <Footer />
     </div>
   );
-}
+};
+
+export default BasicLayout;
